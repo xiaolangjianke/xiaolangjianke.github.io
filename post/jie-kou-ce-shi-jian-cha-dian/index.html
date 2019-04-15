@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>接口测试检查点 | B.ShenDu</title>
+<link rel="shortcut icon" href="https://xiaolangjianke.github.io/favicon.ico">
+<link rel="stylesheet" href="https://xiaolangjianke.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaolangjianke.github.io">
+  <img class="avatar" src="https://xiaolangjianke.github.io/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    B.ShenDu
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              接口测试检查点
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-04-15 ·
+              </time>
+              
+                <a href="https://xiaolangjianke.github.io/tag/b7A-LFPFb" class="post-tags">
+                  # 用例设计
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <p>接口测试是测试系统组件间接口的一种测试。接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。测试的重点是要检查数据的交换，传递和控制管理过程，以及系统间的相互逻辑依赖关系等。</p>
+<p>测试的策略：</p>
+<p>接口测试也是属于功能测试，所以跟我们以往的功能测试流程并没有太大区别，测试流程依旧是：</p>
+<p>评审测试接口文档（需求文档）</p>
+<p>根据接口文档编写测试用例（用例编写完全可以按照以往规则来编写，例如等价类划分，边界值等设计方法）</p>
+<p>执行测试，查看不同的参数请求，接口的返回的数据是否达到预期</p>
+<p>那么设计测试用例时我们主要考虑如下几个方面：</p>
+<p>功能测试：</p>
+<p>接口的功能是否正确实现了</p>
+<p>接口是否按照设计文档中来实现（比如username参数写为了user，那么这就不符合，因为接口文档在整个开发中都需要使用，所以接口实际的设计要与接口设计文档中保持一致）</p>
+<p>兼容性测试： 比如说今天接口进行了调整，但是前端没有进行变更，这时候需要验证新的接口是否满足旧的调用方式</p>
+<p>错误码测试： 通用的错误码与业务错误码是否能够清晰的说明调用问题，错误码是否能够尽可能的全的覆盖所有的情况</p>
+<p>返回值测试： 返回值除了内容需要是正确的，还需要类型也是正确的，保证调用方拿到这些参数能够正确的解析</p>
+<p>参数边界值、等价类测试</p>
+<p>json格式测试： 通常我们的接口一般设计的都是传递json串，那么就需要去测试 如果传递非json的情况，这时候程序会不会正确的处理，返回相应的 error code</p>
+<p>默认值测试： 很多情况一些非必填的参数会有默认值，比如说一个查询的接口，参数count为返回查询的结果数量， 默认为10，那么就应该有一条case来测试，当然前置条件是数据库里面必须要存在这样的数据超过10条。</p>
+<p>逻辑业务：</p>
+<p>是否有依赖业务，比如查看订单，是需要用户首先登录的，所以肯定要保证登录了或有相应的cookie</p>
+<p>业务逻辑测试： 传递正确的参数，接口对数据库进行查询的操作，需要去验证数据库查询是否正确，接口对数据库进行 增删改的操作，也需要看数据库是否同步进行了这些操作</p>
+<p>异常测试：</p>
+<p>异常分为两类，参数异常和数据异常</p>
+<p>参数异常：</p>
+<p>关键字参数：将参数写为开发语言中的关键字</p>
+<p>参数为空：比如去掉了username参数</p>
+<p>多或少参数：多或者少参数的验证，现在还不确定如果一个接口多了参数如果没有报错是否是合理的，或者是否需要优化，因为就目前开发给予的答案是，一般不对接口多了参数的处理</p>
+<p>错误参数：比如将username参数写为了user等看是否能返回相应的error code</p>
+<p>数据异常：</p>
+<p>关键字数据：将参数的值填为开发语言中的关键字</p>
+<p>数据为空：将参数的额值填为空</p>
+<p>长度不一致：因为数据库中每个字段都设置有字段长度，填写不符合的长度进行验证</p>
+<p>错误数据：就是将参数的值任意填写，或填写不存在的数值</p>
+<p>异常类型测试： 比如count参数，这个参数的类型一定是可以转换为int类型的，这时候我们需要测试如果传的一些不可以 转换为int类型值来测试代码是否加入判断<br>性能测试：</p>
+<p>响应时间</p>
+<p>吞吐量</p>
+<p>并发用户数</p>
+<p>占用内存，CPU等<br>安全性测试：</p>
+<p>敏感信息是否加密</p>
+<p>必要参数是否后端也进行校验（现在很多系统前后端架构是分离的，从安全层面来说，只依赖前端进行限制已经完全不能满足系统的安全要求（绕过前端太容易了）， 需要后端同样进行控制，在这种情况下就需要从接口层面进行验证）</p>
+<p>接口是否防恶意请求（SQL注入）</p>
+<p>cookie：就是将header中的cookie修改或删除后看是否能返回相应的error code</p>
+<p>header：就是删除或修改header中部分参数的值，看是否能返回相应的error code</p>
+<p>唯一识别码：删除修改唯一识别码测试</p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaolangjianke.github.io/post/kai-yuan-zu-jian-an-zhuang">
+              <h3 class="post-title">
+                开源组件安装
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '2a4e03b1d07371abf2bc',
+    clientSecret: '0259d13ac3d2d640ef15615cd206577d3455944f',
+    repo: 'xiaolangjianke.github.io',
+    owner: 'xiaolangjianke',
+    admin: ['xiaolangjianke'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
