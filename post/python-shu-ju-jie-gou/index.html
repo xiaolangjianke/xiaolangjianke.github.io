@@ -1,0 +1,319 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>python-数据结构 | B.ShenDu</title>
+<link rel="shortcut icon" href="https://xiaolangjianke.github.io/favicon.ico">
+<link rel="stylesheet" href="https://xiaolangjianke.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaolangjianke.github.io">
+  <img class="avatar" src="https://xiaolangjianke.github.io/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    B.ShenDu
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              python-数据结构
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-09-17 ·
+              </time>
+              
+            </div>
+            <div class="post-content">
+              <h4 id="前言：">前言：</h4><p>概念：数据结构（英语：data structure）是计算机中存储、组织数据的方式。</p>
+<p>意义：正确的数据结构选择可以提高算法的效率，一个设计良好的数据结构，应该在尽可能使用较少的时间与空间资源的前提下，支持各种程序运行。</p>
+<p>常见数据结构：   </p>
+<ul>
+<li>堆栈（Stack）   </li>
+<li>队列（Queue）   </li>
+<li>数组（Array）  </li>
+<li>链表（Linked List）  </li>
+<li>树（Tree）  </li>
+<li>图（Graph）  </li>
+<li>堆积（Heap）  </li>
+<li>散列表（Hash table）  </li>
+</ul>
+<h3 id="python的数据结构">python的数据结构</h3><hr>
+<h4 id="一、列表  list">一、列表  list</h4><ul>
+<li>新增： insert()</li>
+<li>列表最后增加： append()</li>
+<li>查询元素数量： count()</li>
+<li>删除指定元素值： remove()</li>
+<li>反转列表： reserve()</li>
+<li>合并列表： extend()</li>
+<li>列表排序：sort()</li>
+<li>删除指定位置的元素：del</li>
+</ul>
+<pre><code>&gt;&gt;&gt; a = [23, 45, 1, -3434, 43624356, 234]
+&gt;&gt;&gt; a.append(45)
+&gt;&gt;&gt; a
+[23, 45, 1, -3434, 43624356, 234, 45]
+
+&gt;&gt;&gt; a.insert(0, 111) # 在列表索引 0 位置添加元素 111
+&gt;&gt;&gt; a
+[111, 1, 23, 45, 1, -3434, 43624356, 234, 45]
+
+&gt;&gt;&gt; a.count(45)
+2
+
+&gt;&gt;&gt; a.remove(234)
+&gt;&gt;&gt; a
+[111, 1, 23, 45, 1, -3434, 43624356, 45]
+
+&gt;&gt;&gt; a.reverse()
+&gt;&gt;&gt; a
+[45, 43624356, -3434, 1, 45, 23, 1, 111]
+
+&gt;&gt;&gt; b = [45, 56, 90]
+&gt;&gt;&gt; a.extend(b) # 添加 b 的元素而不是 b 本身
+&gt;&gt;&gt; a
+[45, 43624356, -3434, 1, 45, 23, 1, 111, 45, 56, 90]
+
+&gt;&gt;&gt; a.sort()
+&gt;&gt;&gt; a
+[-3434, 1, 1, 23, 45, 45, 45, 56, 90, 111, 43624356]
+
+&gt;&gt;&gt; del a[-1]
+&gt;&gt;&gt; a
+[-3434, 1, 1, 23, 45, 45, 45, 56, 90, 111]
+</code></pre><p>通过pop()实现堆栈和队列</p>
+<ul>
+<li>栈： 后进先出  </li>
+</ul>
+<pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; a
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; a.pop()
+6
+&gt;&gt;&gt; a.pop()
+5
+&gt;&gt;&gt; a.pop()
+4
+&gt;&gt;&gt; a.pop()
+3
+&gt;&gt;&gt; a
+[1, 2]
+&gt;&gt;&gt; a.append(34)
+&gt;&gt;&gt; a
+[1, 2, 34]</code></pre><ul>
+<li>队列： 先进先出   <pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; a.append(1)
+&gt;&gt;&gt; a
+[1, 2, 3, 4, 5, 1]
+&gt;&gt;&gt; a.pop(0)
+1
+&gt;&gt;&gt; a.pop(0)
+2
+&gt;&gt;&gt; a
+[3, 4, 5, 1]</code></pre></li>
+</ul>
+<hr>
+<h4 id="二、元组 tulpe">二、元组 tulpe</h4><ul>
+<li>元组是不可变类型，不能增加或删除<pre><code>&gt;&gt;&gt; a = &#39;Fedora&#39;, &#39;ShiYanLou&#39;, &#39;Kubuntu&#39;, &#39;Pardus&#39;
+&gt;&gt;&gt; a
+(&#39;Fedora&#39;, &#39;ShiYanLou&#39;, &#39;Kubuntu&#39;, &#39;Pardus&#39;)
+&gt;&gt;&gt; a[1]
+&#39;ShiYanLou&#39;</code></pre></li>
+<li>可以拆分赋给多个变量<pre><code>&gt;&gt;&gt; divmod(15,2)
+(7, 1)
+&gt;&gt;&gt; x, y = divmod(15,2)
+&gt;&gt;&gt; x
+7
+&gt;&gt;&gt; y
+1</code></pre></li>
+</ul>
+<h4 id="三、集合">三、集合</h4><p>集合是一个无序不重复元素的集。基本功能包括关系测试和消除重复元素。集合对象还支持 union（联合），intersection（交），difference（差）和 symmetric difference（对称差集）等数学运算。</p>
+<p>大括号或 set() 函数可以用来创建集合。注意：想要创建空集合，你必须使用 set() 而不是 {}。后者用于创建空字典，我们在下一节中介绍的一种数据结构。</p>
+<p>下面是集合的常见操作：</p>
+<pre><code>&gt;&gt;&gt; basket = {&#39;apple&#39;, &#39;orange&#39;, &#39;apple&#39;, &#39;pear&#39;, &#39;orange&#39;, &#39;banana&#39;}
+&gt;&gt;&gt; print(basket)                      # 你可以看到重复的元素被去除
+{&#39;orange&#39;, &#39;banana&#39;, &#39;pear&#39;, &#39;apple&#39;}
+&gt;&gt;&gt; &#39;orange&#39; in basket
+True
+&gt;&gt;&gt; &#39;crabgrass&#39; in basket
+False
+
+&gt;&gt;&gt; # 演示对两个单词中的字母进行集合操作
+...
+&gt;&gt;&gt; a = set(&#39;abracadabra&#39;)
+&gt;&gt;&gt; b = set(&#39;alacazam&#39;)
+&gt;&gt;&gt; a                                  # a 去重后的字母
+{&#39;a&#39;, &#39;r&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;}
+&gt;&gt;&gt; a - b                              # a 有而 b 没有的字母
+{&#39;r&#39;, &#39;d&#39;, &#39;b&#39;}
+&gt;&gt;&gt; a | b                              # 存在于 a 或 b 的字母
+{&#39;a&#39;, &#39;c&#39;, &#39;r&#39;, &#39;d&#39;, &#39;b&#39;, &#39;m&#39;, &#39;z&#39;, &#39;l&#39;}
+&gt;&gt;&gt; a &amp; b                              # a 和 b 都有的字母
+{&#39;a&#39;, &#39;c&#39;}
+&gt;&gt;&gt; a ^ b                              # 存在于 a 或 b 但不同时存在的字母
+{&#39;r&#39;, &#39;d&#39;, &#39;b&#39;, &#39;m&#39;, &#39;z&#39;, &#39;l&#39;}</code></pre><p>从集合中添加或弹出元素：</p>
+<pre><code>&gt;&gt;&gt; a = {&#39;a&#39;,&#39;e&#39;,&#39;h&#39;,&#39;g&#39;}
+&gt;&gt;&gt; a.pop()  # pop 方法随机删除一个元素并打印
+&#39;h&#39;
+&gt;&gt;&gt; a.add(&#39;c&#39;)
+&gt;&gt;&gt; a
+{&#39;c&#39;, &#39;e&#39;, &#39;g&#39;, &#39;a&#39;}</code></pre><h4 id="四、字典">四、字典</h4><p>字典是是无序的键值对（key:value）集合，同一个字典内的键必须是互不相同的。一对大括号 {} 创建一个空字典。初始化字典时，在大括号内放置一组逗号分隔的键：值对，这也是字典输出的方式。我们使用键来检索存储在字典中的数据。</p>
+<pre><code>&gt;&gt;&gt; data = {&#39;kushal&#39;:&#39;Fedora&#39;, &#39;kart_&#39;:&#39;Debian&#39;, &#39;Jace&#39;:&#39;Mac&#39;}
+&gt;&gt;&gt; data
+{&#39;kushal&#39;: &#39;Fedora&#39;, &#39;Jace&#39;: &#39;Mac&#39;, &#39;kart_&#39;: &#39;Debian&#39;}
+&gt;&gt;&gt; data[&#39;kart_&#39;]
+&#39;Debian&#39;</code></pre><ul>
+<li>创建新的键值对</li>
+<li>删除指定键值对</li>
+<li>查询指定键是否在字典中</li>
+</ul>
+<pre><code>&gt;&gt;&gt; data[&#39;parthan&#39;] = &#39;Ubuntu&#39;
+&gt;&gt;&gt; data
+{&#39;kushal&#39;: &#39;Fedora&#39;, &#39;Jace&#39;: &#39;Mac&#39;, &#39;kart_&#39;: &#39;Debian&#39;, &#39;parthan&#39;: &#39;Ubuntu&#39;}
+
+&gt;&gt;&gt; del data[&#39;kushal&#39;]
+&gt;&gt;&gt; data
+{&#39;Jace&#39;: &#39;Mac&#39;, &#39;kart_&#39;: &#39;Debian&#39;, &#39;parthan&#39;: &#39;Ubuntu&#39;
+
+&gt;&gt;&gt; &#39;ShiYanLou&#39; in data
+False</code></pre><ul>
+<li><p>dict()从包含键值对的元组中创建字典。</p>
+<pre><code>&gt;&gt;&gt; dict(((&#39;Indian&#39;,&#39;Delhi&#39;),(&#39;Bangladesh&#39;,&#39;Dhaka&#39;)))
+{&#39;Indian&#39;: &#39;Delhi&#39;, &#39;Bangladesh&#39;: &#39;Dhaka&#39;}</code></pre></li>
+<li><p>遍历字典 item()</p>
+<pre><code>&gt;&gt;&gt; data
+{&#39;Kushal&#39;: &#39;Fedora&#39;, &#39;Jace&#39;: &#39;Mac&#39;, &#39;kart_&#39;: &#39;Debian&#39;, &#39;parthan&#39;: &#39;Ubuntu&#39;}
+&gt;&gt;&gt; for x, y in data.items():
+...     print(&quot;{} uses {}&quot;.format(x, y))</code></pre></li>
+<li><p>许多时候我们需要往字典中的元素添加数据，我们首先要判断这个元素是否存在，不存在则创建一个默认值。如果在循环里执行这个操作，每次迭代都需要判断一次，降低程序性能。<br>我们可以使用 <code>dict.setdefault(key, default)</code> 更有效率的完成这个事情。</p>
+<pre><code>&gt;&gt;&gt; data = {}
+&gt;&gt;&gt; data.setdefault(&#39;names&#39;, []).append(&#39;Ruby&#39;)
+&gt;&gt;&gt; data
+{&#39;names&#39;: [&#39;Ruby&#39;]}
+&gt;&gt;&gt; data.setdefault(&#39;names&#39;, []).append(&#39;Python&#39;)
+&gt;&gt;&gt; data
+{&#39;names&#39;: [&#39;Ruby&#39;, &#39;Python&#39;]}
+&gt;&gt;&gt; data.setdefault(&#39;names&#39;, []).append(&#39;C&#39;)
+&gt;&gt;&gt; data
+{&#39;names&#39;: [&#39;Ruby&#39;, &#39;Python&#39;, &#39;C&#39;]}</code></pre></li>
+<li><p>试图索引一个不存在的键将会抛出一个 keyError 错误。我们可以使用 dict.get(key, default) 来索引键，如果键不存在，那么返回指定的 default 值。</p>
+<pre><code>&gt;&gt;&gt; data[&#39;foo&#39;]
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+KeyError: &#39;foo&#39;
+&gt;&gt;&gt; data.get(&#39;foo&#39;, 0)
+0</code></pre></li>
+<li><p>如果你想要在遍历列表（或任何序列类型）的同时获得元素索引值，你可以使用 enumerate()。</p>
+<pre><code>&gt;&gt;&gt; for i, j in enumerate([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]):
+...     print(i, j)
+...
+0 a
+1 b
+2 c</code></pre></li>
+<li><p>你也许需要同时遍历两个序列类型，你可以使用 zip() 函数。</p>
+<pre><code>&gt;&gt;&gt; a = [&#39;Pradeepto&#39;, &#39;Kushal&#39;]
+&gt;&gt;&gt; b = [&#39;OpenSUSE&#39;, &#39;Fedora&#39;]
+&gt;&gt;&gt; for x, y in zip(a, b):
+...     print(&quot;{} uses {}&quot;.format(x, y))
+...
+Pradeepto uses OpenSUSE
+Kushal uses Fedora</code></pre></li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaolangjianke.github.io/post/jie-kou-ce-shi-jian-cha-dian">
+              <h3 class="post-title">
+                接口测试检查点
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '2a4e03b1d07371abf2bc',
+    clientSecret: '0259d13ac3d2d640ef15615cd206577d3455944f',
+    repo: 'xiaolangjianke.github.io',
+    owner: 'xiaolangjianke',
+    admin: ['xiaolangjianke'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
